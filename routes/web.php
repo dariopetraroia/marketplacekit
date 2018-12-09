@@ -21,7 +21,6 @@ Route::get('/test', function () {
 */
 
 
-
 include "admin.php";
 
 Route::get('/cp', function () {

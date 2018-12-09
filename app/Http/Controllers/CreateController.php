@@ -20,6 +20,7 @@ use App\Models\Listing;
 use App\Models\Category;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
 use Location;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Setting;
 use Storage;
 use Image;
@@ -108,7 +109,6 @@ class CreateController extends Controller
     #public function store(StoreListing $request)
     public function store(Request $request)
     {
-
         $params = $request->all();
         #return response('OK', 200)->header('X-IC-Redirect', '/create/r4W0J7ObQJ/edit#images_section');
         $validator = Validator::make($request->all(), [
@@ -138,8 +138,9 @@ class CreateController extends Controller
         $params['country'] = GeoIP::getCountryCode();
 
         $params['currency'] = Setting::get('currency', config('marketplace.currency'));
+        $params['locale'] = LaravelLocalization::getCurrentLocale() ?? 'en';
         $params['is_published'] = false;
-
+        
         $listing = Listing::create($params);
         #dd($listing);
         #$listing->save();
@@ -147,9 +148,12 @@ class CreateController extends Controller
         #if it's a service - set to 9-5
         if($listing->pricing_model->widget == 'book_time') {
             $slots = [];
-            foreach(range(1,5) as $day)
-                for($hour = 9; $hour <= 17; $hour++)
+            foreach(range(1,5) as $day){
+                for($hour = 9; $hour <= 17; $hour++) {
                     $slots[] = ['day' => $day, 'start_time' => $hour.':00', 'end_time' => ($hour+1).':00'];
+                }
+            }
+            
             $listing->timeslots = $slots;
             $listing->save();
         }

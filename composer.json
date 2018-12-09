@@ -14,6 +14,7 @@
         "arrilot/laravel-widgets": "^3.10",
         "atayahmet/laravel-nestable": "^0.8.7",
         "barryvdh/laravel-cors": "^0.11.0",
+        "barryvdh/laravel-ide-helper": "^2.5",
         "barryvdh/laravel-translation-manager": "^0.4.2",
         "bentools/cartesian-product": "^1.2",
         "christiankuri/laravel-favorite": "^1.2",
@@ -23,6 +24,7 @@
         "cybercog/laravel-ban": "^3.1",
         "davidgorges/human-name-parser": "^0.2.1",
         "depsimon/laravel-wallet": "^1.0",
+        "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "genealabs/laravel-caffeine": "^0.6.8",
         "geokit/geokit": "^1.3",
@@ -35,7 +37,7 @@
         "ixudra/curl": "^6.16",
         "jenssegers/date": "^3.3",
         "jralph/twig-markdown": "1.0.1",
-        "jrean/laravel-user-verification": "dev-master",
+        "jrean/laravel-user-verification": "6.*",
         "kodeine/laravel-meta": "dev-master",
         "kris/laravel-form-builder": "^1.14",
         "larapack/config-writer": "1.*",
@@ -123,6 +125,10 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "post-update-cmd": [
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
         ]
     },
     "config": {

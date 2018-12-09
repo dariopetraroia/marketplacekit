@@ -25,6 +25,88 @@ use Gerardojbaez\Laraplans\Contracts\PlanSubscriberInterface;
 use Gerardojbaez\Laraplans\Traits\PlanSubscriber;
 use Depsimon\Wallet\HasWallet;
 
+/**
+ * App\Models\User
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Cog\Laravel\Ban\Models\Ban[] $bans
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Comment[] $comments
+ * @property-read \Illuminate\Database\Eloquent\Collection|\ChristianKuri\LaravelFavorite\Models\Favorite[] $favorites
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $followers
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User withoutTrashed()
+ * @mixin \Eloquent
+ * @property int $id
+ * @property string $name
+ * @property string|null $display_name
+ * @property string|null $username
+ * @property string|null $slug
+ * @property string|null $bio
+ * @property string|null $phone
+ * @property string $email
+ * @property string $trader_type
+ * @property string|null $business_vat_id
+ * @property string|null $avatar
+ * @property string|null $password
+ * @property string|null $remember_token
+ * @property string|null $gender
+ * @property string|null $city
+ * @property string|null $region
+ * @property string|null $country
+ * @property string|null $country_name
+ * @property string|null $locale
+ * @property int|null $unread_messages
+ * @property int|null $is_admin
+ * @property string|null $ip_address
+ * @property string|null $last_login_at
+ * @property string|null $last_login_ip
+ * @property string|null $blocked_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property int|null $can_accept_payments
+ * @property int $verified
+ * @property string|null $verification_token
+ * @property string|null $banned_at
+ * @property string|null $provider
+ * @property string|null $provider_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereAvatar($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereBannedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereBio($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereBlockedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereBusinessVatId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCanAcceptPayments($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCountryName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereDisplayName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereGender($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereIpAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereIsAdmin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereLastLoginAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereLastLoginIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereLocale($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereProvider($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereProviderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRegion($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereTraderType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUnreadMessages($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUsername($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereVerificationToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereVerified($value)
+ */
 class User extends Authenticatable implements BannableContract, JWTSubject, PlanSubscriberInterface
 {
     use Notifiable;

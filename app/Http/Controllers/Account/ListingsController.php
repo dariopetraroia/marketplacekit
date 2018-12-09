@@ -16,7 +16,9 @@ class ListingsController extends Controller
      */
     public function index()
     {
-		$listings = Listing::where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->paginate(10);
+		$listings = Listing::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'DESC')
+            ->paginate(10);
 		return view('account.listings', compact('listings'));
     }
 

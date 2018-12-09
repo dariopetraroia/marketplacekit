@@ -57,9 +57,7 @@ class ConfigServiceProvider extends ServiceProvider {
                 $default_locale = key($supported_locales);
                 config(['app.locale' => $default_locale]);
             }
-
-
-
+            
         }
     }
 
