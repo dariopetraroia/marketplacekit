@@ -113,6 +113,9 @@
         <li class="{{ active(['*themes*']) }}">
             <a href="/panel/themes"><i class="fa fa-paint-brush"></i> Themes </a>
         </li>
+        <li class="{{ active(['*translations*']) }}">
+            <a href="/translations"><i class="fa fa-language"></i> Translations </a>
+        </li>
         <li class="{{ active(['*settings*', '*fields*', '*pricing-models*']) }}">
             <a href="/panel/settings"><i class="fa fa-cogs"></i> Settings </a>
         </li>
