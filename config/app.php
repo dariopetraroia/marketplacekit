@@ -165,6 +165,7 @@ return [
          */
         TwigBridge\ServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
+        Dawson\AmazonECS\AmazonECSServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -245,6 +246,7 @@ return [
         'Searchy' => TomLingham\Searchy\Facades\Searchy::class,
         'Zipper' => Chumper\Zipper\Zipper::class,
         'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
+        Dawson\AmazonECS\AmazonECSServiceProvider::class,
 
     ],
 
